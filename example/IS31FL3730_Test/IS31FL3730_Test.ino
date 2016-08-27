@@ -11,6 +11,9 @@ IS31FL3730 m3;
 
 void setup() {
   Serial.begin(9600);
+  while (!Serial) {
+    ; // wait for serial port to connect. Needed for native USB port only
+  }    
   Serial.println("ISSI test");
 
   m1.begin(0x61);
