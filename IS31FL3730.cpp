@@ -14,8 +14,9 @@ boolean IS31FL3730::begin(uint8_t addr) {
   _brightness = 127;
 
   writeRegister8(_i2caddr, ISSI_REG_CONFIG, Default_Mode);
-  writeRegister8(_i2caddr, ISSI_REG_LE, Default_reg_le);
   writeRegister8(_i2caddr, ISSI_REG_BRIGHT, _brightness);
+
+  set_le(Default_reg_le);
 
   for (uint8_t i=0; i < 8; i++) {
       _buf_matrix_1[i] = 0;
@@ -50,6 +51,11 @@ void IS31FL3730::clear(void) {
       _buf_matrix_2[i] = 0;
   }
   update();
+}
+
+
+void IS31FL3730::set_le(uint8_t light_effect_register) {
+  writeRegister8(_i2caddr, ISSI_REG_LE, light_effect_register);
 }
 
 void IS31FL3730::set_bright(uint8_t bright) {
