@@ -23,6 +23,7 @@ class IS31FL3730 {
   void update(void);
   void clear(void);
   void set_bright(uint8_t bright);
+  void set_le(uint8_t light_effect_register);
   void set_decimal(uint8_t matrix, uint8_t c);
   void set_pixel(uint8_t matrix, uint8_t x, uint8_t y, uint8_t c);
   void set_col(uint8_t matrix, uint8_t col, uint8_t data);

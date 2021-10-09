@@ -20,6 +20,9 @@ void setup() {
   m2.begin(0x62);
   m3.begin(0x63);
 
+  // set Lighting Effect Register to 10mA
+  m1.set_le(0x9);
+
   m1.clear();
   m2.clear();
   m3.clear();
